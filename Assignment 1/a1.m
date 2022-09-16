@@ -1,0 +1,83 @@
+%Kundhavi P. Gnanam
+%1/17/18
+%ISC4220
+
+
+%Question 1
+
+    %Equation 1
+        % f(x) = x^2 -2
+        
+            x1=-2*pi:pi/100:2*pi;
+            y1=x1.^(2)-5;
+            figure();
+            plot(x1,y1);
+            
+    %Equation 2
+        %f(x)= sin(x)
+        
+            x2=-2*pi:pi/100:2*pi;
+            y2=sin(x2);
+            figure();
+            plot(x2,y2);
+            
+           
+ %Question 2
+
+    %Equation 1 - three roots
+        % f(x)= x.^3 + 6*x.^2 + 3
+        
+            x3=-2*pi:pi/100:2*pi;
+            y3=x3.^(3)+6*x3.^(2)+3;
+            figure();
+            plot(x3,y3);
+            
+    %Equation 2 - zero roots
+        %f(x) = x^2 +1
+        
+            x4=-2*pi:pi/100:2*pi;
+            y4=x4.^2 +1;
+            figure();
+            plot(x4,y4);
+            
+           
+%Lab
+
+function [xst, erra, iter] = bisection(func, a, b, tol);
+erra = 1000;
+i=1;
+mp = 0; % this value is the midpoint between a and b
+xst = 0 % this is the answer 
+    while (tol < erra)
+        mp = (a+b)/2;
+        tempA = g(a);
+        tempX = g(mp);
+        
+        aTimesMp = tempA * tempX;
+        
+        if(aTimesMp < 0)
+            b = mp;
+        end
+        if(aTimesMp == 0)
+            xst = mp;
+        end
+        if(aTimesMp > 0)
+            a = mp;
+        end
+        
+        xst= mp;
+        erra = abs(b-a);
+        i= i +1
+        end
+    iter = i;
+    
+
+
+end
+    
+    
+
+
+    
+                       
+            
